@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZAVANA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ <!-- Favicons -->
+ <link href="{{url_for('static', filename='img/Zav.png')}}" rel="icon">
+ <link href="{{url_for('static', filename='img/Zav.png')}}" rel="apple-touch-icon">
+
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+ <!-- Vendor CSS Files -->
+ <link href="{{url_for('static', filename='aos/aos.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='remixicon/remixicon.css')}}" rel="stylesheet">
+ <link href="{{url_for('static', filename='swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+ <!-- Template Main CSS File -->
+ <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{{ url_for('mainpage') }}">ZaVaNa</a></h1>
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('mainpage') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('.mainpage',_anchor='about') }}">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Results</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('.mainpage',_anchor='team') }}">Team</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('.mainpage',_anchor='contact') }}">Contact</a></li>
+          <li><a class="getstarted scrollto" href="{{ url_for('predictnow') }}">Explore Now</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>{{fullname}}</h1>
+          <h2>{{ticker}} : NSE</h2>
+          <h1>Rs {{currentPrice}}</h1>
+          <span class='change' data-change='{{sign}}'><h4>{{changefromyesterday}} ({{changefromyesterdayper}}%)</h4></span>
+          <br>
+          <a href="{{website}}" target="_blank" style="color:rgb(255, 196, 0)">Know More About {{fullname}}</a>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img float-right" data-aos="zoom-in" data-aos-delay="200">
+          <img src="{{url_for('static', filename='/img/logos/'+ticker+'.png')}}" width="300" height="275" class="img-fluid animated" alt="">
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+  </section><!-- End Hero -->
+  <!-- ======= Fundamental Analysis Section ======= -->
+  
+  <main id="main">
+      <!-- ======= Services Section ======= -->
+    <section id="info" class="info">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="section-title">
+              <h2>ABOUT {{ticker}}</h2>
+          </div>
+          <p style="text-align:justify">{{value}}</p>
+        </div>
+      </div>
+    </section><!-- End Fundamental Analysis Section -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4><a href="#prediction">Price Prediction</a></h4>
+                <p>The prediction model developed by Zavana provides price predictions for any Nifty50 Stock with help of
+               various machine learning algorithms and techniques</p>
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                <h4><a href="#recom">Recommendations</a></h4>
+                <p>Zavana provides recommendations and suggestions to users on when to buy and sell stocks using indicators
+                to highlight stock market movements</p>
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4><a href="#fund">Fundamental Analysis</a></h4>
+                <p>We provide fundamental analysis of all Nifty50 stocks encompassing details such as marketCap,
+                Business summary and much more</p>
+              </div>
+            </div>
+  
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-layer"></i></div>
+                <h4><a href="#stockviz">Stock Visualization</a></h4>
+                <p>Visualization lets you comprehend vast amounts of data at a glance and in a better way. It helps to understand the data better to measure its impact.</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Services Section -->
+
+    <!-- ======= Recommendation Section ======= -->
+    <section id="recom" class="recom">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+            <div class="section-title">
+                <h2>Recommendation</h2>
+              </div>
+        </div>
+        <section id="service" class="service section-bg">
+          <div class="row">
+            <div class="col">
+              <div id="recom1" style="width:100%;max-width:605px"></div>
+              <script>
+                var wArray = {{maclose | safe}};
+                var xArray = {{sma25 | safe}};
+                var yArray = {{sma50 | safe}};
+                var bx = {{buyx | safe}};
+                var by = {{buyy | safe}};
+                var sx = {{sellx | safe}};
+                var sy = {{selly | safe}};
+                var zArray = {{madate | safe}};
+                // Define Data
+                var data = [
+                {x: zArray, y: wArray, mode:"lines",name:'Close',line:{color:'blue'}},
+                {x: zArray, y: xArray, mode:"lines",name:'SMA 25',line:{color:'green'}},
+                {x: zArray, y: yArray, mode:"lines",name:'SMA 50',line:{color:'red'}},
+                {x: bx, y: by, mode:"markers",name:'Buy',marker:{color:'green',symbol:"triangle-up",size:15}},
+                {x: sx, y: sy, mode:"markers",name:'Sell',marker:{color:'red',symbol:"triangle-down",size:15}}
+                ];
+                  // Define Layout
+                var layout = {
+                  xaxis: { title: "Date"},
+                  yaxis: {title: "Price in Rupees"},  
+                  title: "Simple Moving Average",
+                  plot_bgcolor:"white"
+                };
+                  
+                  // Display using Plotly
+                Plotly.newPlot("recom1", data, layout, {displayModeBar: false});
+              </script>
+              <br>
+              <div class="row">
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Date</h6>
+                    <h6>{{showsmabuydate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Price</h6>
+                    <h6>{{showsmabuyprice}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Date</h6>
+                    <h6>{{showsmaselldate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Price</h6>
+                    <h6>{{showsmasellprice}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Date</h6>
+                    <h6>{{showemabuydate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Price</h6>
+                    <h6>{{showemabuyprice}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Date</h6>
+                    <h6>{{showemaselldate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Price</h6>
+                    <h6>{{showemasellprice}}</h6>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div id="recom2" style="width:100%;max-width:700px"></div>
+              <script>
+                var wArray = {{maclose | safe}};
+                var xArray = {{ema25 | safe}};
+                var yArray = {{ema50 | safe}};
+                var bx = {{emabuyx | safe}};
+                var by = {{emabuyy | safe}};
+                var sx = {{emasellx | safe}};
+                var sy = {{emaselly | safe}};
+                var zArray = {{madate | safe}};
+                // Define Data
+                var data = [
+                {x: zArray, y: wArray, mode:"lines",name:'Close',line:{color:'blue'}},
+                {x: zArray, y: xArray, mode:"lines",name:'EMA 25',line:{color:'green'}},
+                {x: zArray, y: yArray, mode:"lines",name:'EMA 50',line:{color:'red'}},
+                {x: bx, y: by, mode:"markers",name:'Buy',marker:{color:'green',symbol:"triangle-up",size:15}},
+                {x: sx, y: sy, mode:"markers",name:'Sell',marker:{color:'red',symbol:"triangle-down",size:15}}
+                ];
+                
+                // Define Layout
+                var layout = {
+                  xaxis: { title: "Date"},
+                  yaxis: {title: "Price in Rupees"},  
+                  title: "Exponential Moving Average",
+                  plot_bgcolor:"white"
+                };
+                
+                // Display using Plotly
+                Plotly.newPlot("recom2", data, layout, {displayModeBar: false});
+              </script>
+            </div>
+          </div>
+          <div><br></div>
+          <div class="row">
+            <div id="recom4"></div>
+            <script>
+              var wArray = {{maclose | safe}};
+              var xArray = {{sig9 | safe}};
+              var yArray = {{macd | safe}};
+              var zArray = {{madate | safe}};
+
+              var bx = {{cdbuyx | safe}};
+              var by = {{cdbuyy | safe}};
+              var sx = {{cdsellx | safe}};
+              var sy = {{cdselly | safe}};
+              
+              // Define Data
+              var data = [
+              {x: zArray, y: wArray, mode:"lines",name:'Close',line:{color:'blue'}},
+              {x: zArray, y: xArray, mode:"lines",name:'MACD-EMA-9',line:{color:'green'}},
+              {x: zArray, y: yArray, mode:"lines",name:'MACD',line:{color:'red'}},
+              {x: bx, y: by, mode:"markers",name:'Buy',marker:{color:'green',symbol:"triangle-up",size:15}},
+              {x: sx, y: sy, mode:"markers",name:'Sell',marker:{color:'red',symbol:"triangle-down",size:15}}
+              ];
+              
+              // Define Layout
+              var layout = {
+                xaxis: { title: "Date"},
+                yaxis: {title: "Price in Rupees"},  
+                title: "Moving Average Convergence-Divergence",
+                plot_bgcolor:"white"
+              };
+              // Display using Plotly
+              Plotly.newPlot("recom4", data, layout, {displayModeBar: false});
+            </script>
+            <div><br></div>
+            <div class="row">
+              <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box" style="text-align: center">
+                  <h6>Last Buy Date : {{showcdbuydate}}</h6>
+                  <!--<h6>{{showcdbuydate}}</h6>-->
+                </div>
+              </div>
+              <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box" style="text-align: center">
+                  <h6>Last Buy Price : {{showcdbuyprice}}</h6>
+                  <!--<h6>{{showcdbuyprice}}</h6>-->
+                </div>
+              </div>
+              <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box" style="text-align: center">
+                  <h6>Last Sell Date : {{showcdselldate}}</h6>
+                  <!--<h6>{{showcdselldate}}</h6>-->
+                </div>
+              </div>
+              <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box" style="text-align: center">
+                  <h6>Last Sell Price : {{showcdsellprice}}</h6>
+                  <!--<h6>{{showcdsellprice}}</h6>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><br></div>
+          <div class="row">
+            <div class="col">
+                <div id="recom3" style="width:100%;max-width:625px"></div>
+                <script>
+                  var vArray = {{maclose | safe}};
+                  var wArray = {{bbmean | safe}};
+                  var xArray = {{bbhigh | safe}};
+                  var yArray = {{bblow | safe}};
+                  var zArray = {{madate | safe}};
+                  
+                  var bx = {{bbbuyx | safe}};
+                  var by = {{bbbuyy | safe}};
+                  var sx = {{bbsellx | safe}};
+                  var sy = {{bbselly | safe}};
+                  
+                  // Define Data
+                  var data = [
+                  {x: zArray, y: vArray, mode:"lines",name:'Close',line:{color:'blue'}},
+                  {x: zArray, y: wArray, mode:"lines",name:'SMA 20',line:{color:'black'}},
+                  {x: zArray, y: xArray, mode:"lines",name:'High Band',line:{color:'green'}},
+                  {x: zArray, y: yArray, mode:"lines",name:'Low Band',line:{color:'red'}},
+                  {x: bx, y: by, mode:"markers",name:'Buy',marker:{color:'green',symbol:"triangle-up",size:15}},
+                  {x: sx, y: sy, mode:"markers",name:'Sell',marker:{color:'red',symbol:"triangle-down",size:15}}
+                  ];
+                  
+                  // Define Layout
+                  var layout = {
+                    xaxis: { title: "Date"},
+                    yaxis: {title: "Price in Rupees"},  
+                    title: "Bollinger Bands",
+                    plot_bgcolor:"white"
+                  };
+                  
+                  // Display using Plotly
+                  Plotly.newPlot("recom3", data, layout, {displayModeBar: false});
+                </script>
+                <br>
+                <div class="row">
+                  <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box" style="text-align: center">
+                      <h6>Last Buy Date</h6>
+                      <h6>{{showbbbuydate}}</h6>
+                    </div>
+                  </div>
+                  <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box" style="text-align: center">
+                      <h6>Last Buy Price</h6>
+                      <h6>{{showbbbuyprice}}</h6>
+                    </div>
+                  </div>
+                  <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box" style="text-align: center">
+                      <h6>Last Sell Date</h6>
+                      <h6>{{showbbselldate}}</h6>
+                    </div>
+                  </div>
+                  <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box" style="text-align: center">
+                      <h6>Last Sell Price</h6>
+                      <h6>{{showbbsellprice}}</h6>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Date</h6>
+                    <h6>{{showrsibuydate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Buy Price</h6>
+                    <h6>{{showrsibuyprice}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Date</h6>
+                    <h6>{{showrsiselldate}}</h6>
+                  </div>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="icon-box" style="text-align: center">
+                    <h6>Last Sell Price</h6>
+                    <h6>{{showrsisellprice}}</h6>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div id="recom5" style="width:100%;max-width:700px"></div>
+              <script>
+                var wArray = {{r70 | safe}};
+                var xArray = {{rsi | safe}};
+                var yArray = {{r30 | safe}};
+                var zArray = {{madate | safe}};
+                
+                var bx = {{rsbuyx | safe}};
+                var by = {{rsbuyy | safe}};
+                var sx = {{rssellx | safe}};
+                var sy = {{rsselly | safe}};
+                
+                // Define Data  
+                var data = [
+                {x: zArray, y: wArray, mode:"lines",name:'RSI>70',line:{color:'red',dash: 'dash'}},
+                {x: zArray, y: xArray, mode:"lines",name:'RSI',line:{color:'black'}},
+                {x: zArray, y: yArray, mode:"lines",name:'RSI<30',line:{color:'green',dash: 'dash'}},
+                {x: sx, y: sy, mode:"markers",name:'Buy',marker:{color:'green',symbol:"triangle-up",size:15}},
+                {x: bx, y: by, mode:"markers",name:'Sell',marker:{color:'red',symbol:"triangle-down",size:15}}
+                ];
+                
+                // Define Layout
+                var layout = {
+                  xaxis: { title: "Date"},
+                  yaxis: {title: "Price in Rupees"},  
+                  title: "Relative Strength Index",
+                  plot_bgcolor:"white"
+                };
+                
+                // Display using Plotly
+                Plotly.newPlot("recom5", data, layout, {displayModeBar: false});
+              </script>
+              
+            </div>
+          </div>
+        </section>
+      </div>
+    </section><!-- End Recommendation Section -->
+
+    <!-- ======= Fundamental Analysis Section ======= -->
+    <section id="fund" class="fund">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+              <div class="section-title">
+                  <h2>Fundamental Analysis</h2>
+              </div>
+          </div>
+        </div>
+        <section id="service" class="service section-bg">
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>1 yr Change</h6>
+                  <h4>{{fiftytwochange}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Book Value </h6>
+                  <h4>{{bookvalue}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Price</h6>
+                  <h4>{{currentPrice}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Day High</h6>
+                  <h4>{{dayHigh}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Day Low</h6>
+                  <h4>{{dayLow}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>RevenueGrowth</h6>
+                  <h4>{{revenueGrowth}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>200DayAverage</h6>
+                  <h4>{{twoHundredDayAverage}}</h4>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>52 Week High </h6>
+                  <h4>{{fiftyTwoWeekHigh}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>52 Week Low </h6>
+                  <h4>{{fiftyTwoWeekLow}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Dividend Rate </h6>
+                  <h4>{{dividendRate}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Forward EPS </h6>
+                  <h4>{{forwardEps}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Forward PE </h6>
+                  <h4>{{forwardPE}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Beta</h6>
+                  <h4>{{beta}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Price To Book</h6>
+                  <h4>{{priceToBook}}</h4>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Market Cap</h6>
+                  <h4>{{marketCap}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Return On Assets</h6>
+                  <h4>{{returnOnAssets}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Return On Equity</h6>
+                  <h4>{{returnOnEquity}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Trailing EPS</h6>
+                  <h4>{{trailingEps}}</h4>
+                </div>
+              </div>
+              <div class="col col-md" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                  <h6>Trailing PE</h6>
+                  <h4>{{trailingPE}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </section><!-- End Fundamental Analysis Section -->
+
+      <!-- ======= Price Prediction Section ======= -->
+    <section id="prediction" class="prediction">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Price Prediction</h2>
+        </div>
+        </div>
+          <div class="col-lg-7 pred-btn-container text-center">
+            <div class="pred-btn align-middle" >
+              <h2>{{tom_price}}</h2>
+              <span class='changepred' data-change='{{predsign}}'><h6>{{changefromtoday}} ({{changefromtodayper}}%)</h6></span>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section><!-- End Price Prediction Section -->
+
+    <!-- ======= Stock Visualization ======= -->
+    <section id="stockviz" class="stockviz">
+        <div class="container-fluid" data-aos="fade-up">
+          <div class="row">
+              <div class="section-title">
+                  <h2>Stock Visualization</h2>
+              </div>
+          </div>
+        </div>
+        
+        <section id="service" class="service section-bg">
+          <div class="row">
+            <div class="col">
+              <div id="myPlot" style="width:100%;max-width:620px"></div>
+                <script>
+                  var xArray = {{stockDate | safe}};
+                  var yArray = {{closePrice | safe}};
+                  // Define Data
+                  var data = [{
+                    x: xArray,
+                    y: yArray,
+                    mode:"lines"
+                  }];
+                  
+                  // Define Layout
+                  var layout = {
+                    xaxis: { title: "Date"},
+                    yaxis: {title: "Close Price in Rupees"},  
+                    title: "Closing price over the year",
+                    plot_bgcolor:"black"
+                  };
+                  
+                  // Display using Plotly
+                  Plotly.newPlot("myPlot", data, layout, {displayModeBar: false});
+                </script>
+            </div>
+            <div class="col"> 
+              <div id="myPlot2" style="width:100%;max-width:700px"></div>
+              <script>
+                var xArray = {{highPrice | safe}};
+                var yArray = {{lowPrice | safe}};
+                var zArray = {{stockDate | safe}};
+                // Define Data
+                var data = [
+                {x: zArray, y: xArray, mode:"lines",name:'High',line:{color:'rgb(0, 219, 0)'}},
+                {x: zArray, y: yArray, mode:"lines",name:'Low',line:{color: 'rgb(219, 0, 0)'}}
+                ];
+                
+                // Define Layout
+                var layout = {
+                  xaxis: { title: "Date"},
+                  yaxis: {title: "Price in Rupees"},  
+                  title: "High vs Low",
+                  plot_bgcolor:"black"
+                };
+                
+                // Display using Plotly
+                Plotly.newPlot("myPlot2", data, layout, {displayModeBar: false});
+              </script>
+            </div>
+          </div>
+          <div><br></div>
+          <div class="row">
+            <div class="col">
+              <div id="myPlot3" style="width:100%;max-width:620px"></div>
+                <script>
+                  var xArray = {{Returns | safe}};
+                  var yArray = {{volume | safe}};
+                  var zArray = {{stockDate | safe}};
+                  // Define Data
+                  var data = [
+                  {x: zArray, y: yArray, type:"line",name:'Returns',line:{color:'rgb(0, 219, 0)'}},
+                  {x: zArray, y: xArray, type:"bar",name:'Volume',line:{color: 'rgb(219, 0, 0)'}}
+                  ];
+                  
+                  // Define Layout
+                  var layout = {
+                    xaxis: { title: "Date"},
+                    yaxis: {title: "Price in Rupees"},  
+                    title: "Returns vs Volume",
+                    plot_bgcolor:"black"
+                  };
+                  
+                  // Display using Plotly
+                  Plotly.newPlot("myPlot3", data, layout, {displayModeBar: false});
+                </script>
+            </div>
+            <div class="col">
+              <div id="myPlot4" style="width:100%;max-width:700px"></div>
+                <script>
+                  var trace = {
+                    x: {{stockDate | safe}},
+                    close: {{closePrice | safe}},
+                    high: {{highPrice | safe}},
+                    low: {{lowPrice | safe}},
+                    open: {{openPrice | safe}},
+
+                    // cutomise colors
+                    increasing: {line: {color: 'green'}},
+                    decreasing: {line: {color: 'red'}},
+
+                    type: 'candlestick',
+                    xaxis: 'x',
+                    yaxis: 'y'
+                    };
+
+                  var data = [trace];
+
+                  var layout = {
+                    xaxis: {title: "Date"},
+                    yaxis: {title: "Price in Rupees"},  
+                    title: "CandleStick Chart",
+                    dragmode: 'zoom',
+                    showlegend: false,
+                    plot_bgcolor:"black",
+                    xaxis: {
+                      rangeslider: {
+                        visible: false
+                      }
+                    }
+                  };
+                Plotly.newPlot('myPlot4', data, layout, {displayModeBar: false});
+              </script>
+            </div>
+          </div>
+        </section>
+      </section><!-- End Stock Visualizations Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Zavana</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="{{ url_for('.mainpage',_anchor='team') }}">Akash, Naveen, Dhanik and Saiprakash</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+   <!-- Vendor JS Files -->
+   <script src="{{url_for('static', filename='aos/aos.js')}}"></script>
+   <script src="{{url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+   <script src="{{url_for('static', filename='glightbox/js/glightbox.min.js')}}"></script>
+   <script src="{{url_for('static', filename='isotope-layout/isotope.pkgd.min.js')}}"></script>
+   <script src="{{url_for('static', filename='php-email-form/validate.js')}}"></script>
+   <script src="{{url_for('static', filename='swiper/swiper-bundle.min.js')}}"></script>
+   <script src="{{url_for('static', filename='waypoints/noframework.waypoints.js')}}"></script>
+ 
+   <!-- Template Main JS File -->
+   <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>

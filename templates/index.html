@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZAVANA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{url_for('static', filename='img/Zav.png')}}" rel="icon">
+  <link href="{{url_for('static', filename='img/Zav.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for('static', filename='aos/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{{ url_for('mainpage') }}">ZaVaNa</a></h1>
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="{{ url_for('predictnow') }}">Explore Now</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Destination For Smart Investments</h1>
+          <h2>Analyse and Invest using Complex Algorithms</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="{{ url_for('predictnow') }}" class="btn-get-started scrollto">Explore Now</a>
+            <!--
+            <a href="" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            -->
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="{{url_for('static', filename='/img/hero-img.png')}}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Cliens Section ======= -->
+    <section id="cliens" class="cliens section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-1.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-2.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-3.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/Nifty50.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-4.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-5.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-sm d-flex align-items-center justify-content-center">
+            <img src="{{url_for('static', filename='/img/clients/client-6.png')}}" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>About Zavana</h2>
+        </div>
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Zavana is your one stop stock analysis website that leverages the power of machine learning to make smart predictions and uses the following components to do this:
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Daily news sentiment analysis of the stock.</li>
+              <li><i class="ri-check-double-line"></i> Prediction using Neural networks.</li>
+              <li><i class="ri-check-double-line"></i> Technical and fundamental analysis of the stock.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              We combine all these aspects and give you the best possible prediction and information about the stock, to know more about how this website works, you can click on the button below.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+            <div class="content">
+              <h3><strong>Product Description</strong></h3>
+              <p>
+                If you want to invest smartly then this is the right place for you. We provide a wide range of services for you to make financial progress.
+              </p>
+            </div>
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Stock Prediction <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                    <p>
+                      The website predicts the stock price using Machine Learning models on the past data and the sentiment associated with the stock from news headlines with a good accuracy.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Stock Analysis <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      Graphs and tables on the stock Data and the company fundamentals are displayed for you to analyse and invest in the right stocks.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Stock Recommendation<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                    <p>
+                      The product also recommends you to whether buy or sell a stock based on different technical indicators.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style="background-image: url('/static/img/why-us.png')" data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">  
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="{{url_for('static', filename='/img/skills.png')}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3>Sector Wise Composition of Stocks in Nifty50</h3>
+            <p class="font-italic">
+              The Nifty50 is a diversified benchmark stock index comprising of 50 stocks that accounts for 12 different sectors of the economy. As an investor, it is crucial to understand each of these stocks and the organizations they represent. The stock details have been listed sector wise. The composition indicates the top 4 sectors based on number of companies part of the sector.
+            </p>
+            <div class="skills-content">
+              <div class="progress">
+                <span class="skill">Financial Services<i class="val">11</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="progress">
+                <span class="skill">Consumer Goods & Services<i class="val">7</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="progress">
+                <span class="skill">Automobile<i class="val">6</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="progress">
+                <span class="skill">IT<i class="val">5</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Zavana offers a wide gamut of prediction and recommendation services to all stock market enthusiasts and users. Our services include working buy and sell recommendations, fundamental analysis and stock price prediction.</p>
+        </div>
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Price Prediction</a></h4>
+              <p>The prediction model developed by Zavana provides price predictions for any Nifty50 Stock with help of
+             various machine learning algorithms and techniques</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Recommendations</a></h4>
+              <p>Zavana provides recommendations and suggestions to users on when to buy and sell stocks using indicators
+              to highlight stock market movements</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Fundamental Analysis</a></h4>
+              <p>We provide fundamental analysis of all Nifty50 stocks encompassing details such as marketCap,
+              Business summary and much more</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">Technical Analysis</a></h4>
+              <p>We provide various technical indicators such as RSI, Bollinger Bands and much more which would help 
+              the users in understanding market trends</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+    
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>Call To Action</h3>
+            <p>Explore the power of Machine Learning and Algorithms to maximize your returns. This is your one stop solution for stock analysis and prediction. Invest smartly. Take action NOW.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{{ url_for('predictnow') }}">Explore Now</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>We are students of PES University Electronic City Campus from Computer Science and Engineering branch aiming to provide our users with a system where they get prediction on various and get recommendations. We have visualized, analysed our model through various Machine Learning Techniques.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="{{url_for('static', filename='/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Akash Yadav</h4>
+                <span>Student</span>
+                <p>PES University, Electronic City Campus, Bangalore</p>
+                <div class="social">
+                  <a href="https://twitter.com/akash__yadav_" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a href="https://github.com/akashyadavv" target="_blank"><i class="ri-github-fill"></i></a>
+                  <a href="https://www.instagram.com/_akash_yadav_/" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/in/akash-yadav-398b26199/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="{{url_for('static', filename='/img/team/team-2.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Naveen Suresh</h4>
+                <span>Student</span>
+                <p>PES University, Electronic City Campus, Bangalore</p>
+                <div class="social">
+                  <a href="https://twitter.com/NaveenSuresh180" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a href="https://github.com/naveensuresh22" target="_blank"><i class="ri-github-fill"></i></a>
+                  <a href="https://www.instagram.com/naveensuresh18/" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/in/naveen-suresh-96312a178/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="{{url_for('static', filename='/img/team/team-3.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dhanik Shetty</h4>
+                <span>Student</span>
+                <p>PES University, Electronic City Campus, Bangalore</p>
+                <div class="social">
+                  <a href="https://twitter.com/dhanikshetty_" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a href="https://github.com/dhanikshetty" target="_blank"><i class="ri-github-fill"></i></a>
+                  <a href="https://www.instagram.com/dhanik.shetty/" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/in/dhanikshetty/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+              <div class="pic"><img src="{{url_for('static', filename='/img/team/team-4.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Saiprakash L Shetty</h4>
+                <span>Student</span>
+                <p>PES University, Electronic City Campus, Bangalore</p>
+                <div class="social">
+                  <a href="https://twitter.com/l_saiprakash" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a href="https://github.com/SaiprakashShetty" target="_blank"><i class="ri-github-fill"></i></a>
+                  <a href="https://www.instagram.com/saiprakashshetty/" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/in/saiprakash-shetty/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>PES University, Electronic City Campus, Bangalore, KA 560100</p>
+              </div>
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>zavanacontact@gmail.com</p>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.7183891895493!2d77.66251941413414!3d12.86145672076708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6cbccb22bec1%3A0x4bad30b7a7fd5e76!2sPES%20University%20Electronic%20City%20Campus!5e0!3m2!1sen!2sin!4v1625147639115!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form method="post" class="php-email-form" action="{{url_for('static', filename='/forms/contact_other.php')}}">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">   
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Zavana</h3>
+            <p>
+              PES University Electronic City Campus<br>
+              Bangalore 560 100<br>
+              Karnataka, India <br><br>
+              <strong>Phone:</strong> +91 9876543210<br>
+              <strong>Email:</strong> zavanacontact@gmail.com<br>
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links foot-img" data-aos="zoom-in" data-aos-delay="200">
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Zavana</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#team">Akash, Naveen, Dhanik and Saiprakash</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+   <!-- Vendor JS Files -->
+   <script src="{{url_for('static', filename='aos/aos.js')}}"></script>
+   <script src="{{url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+   <script src="{{url_for('static', filename='glightbox/js/glightbox.min.js')}}"></script>
+   <script src="{{url_for('static', filename='isotope-layout/isotope.pkgd.min.js')}}"></script>
+   <script src="{{url_for('static', filename='php-email-form/validate.js')}}"></script>
+   <script src="{{url_for('static', filename='swiper/swiper-bundle.min.js')}}"></script>
+   <script src="{{url_for('static', filename='waypoints/noframework.waypoints.js')}}"></script>
+ 
+   <!-- Template Main JS File -->
+   <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>
