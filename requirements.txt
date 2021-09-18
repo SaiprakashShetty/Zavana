@@ -10,9 +10,6 @@ certifi==2021.5.30
 cffi==1.14.6
 chardet==4.0.0
 chart-studio==1.1.0
-click==8.0.1
-distlib==0.3.1
-Django==3.2.5
 filelock==3.0.12
 Flask==2.0.1
 Flask-Cors==3.0.10
