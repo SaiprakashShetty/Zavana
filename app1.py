@@ -384,4 +384,4 @@ def portfolio():
         buydate=request.form.get("buydate")
         numstock=request.form.get("numstock")
 if __name__ == "__main__":        # on running python app.py
-    app.run(debug=False,host='0.0.0.0')                     # run the flask app 
+    app.run(debug=True,host='0.0.0.0')                     # run the flask app 
