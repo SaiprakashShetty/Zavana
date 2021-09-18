@@ -12,7 +12,6 @@ chardet==4.0.0
 chart-studio==1.1.0
 click==8.0.1
 colorama==0.4.4
-cryptography==3.4.7
 cycler==0.10.0
 distlib==0.3.1
 Django==3.2.5
